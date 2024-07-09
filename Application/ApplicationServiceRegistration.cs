@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Core.Application.Validation;
 using Core.Application.Authorization;
 using Application.Features.Auth.Rules;
+using Application.Features.Users.Rules;
 
 namespace Application
 {
@@ -26,6 +27,7 @@ namespace Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<IAuthService, AuthManager>();
             services.AddScoped<AuthBusinessRules>();
+            services.AddScoped<UserBusinessRules>();
             return services;
 
         }
