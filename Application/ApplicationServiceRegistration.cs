@@ -12,6 +12,8 @@ using Core.Application.Validation;
 using Core.Application.Authorization;
 using Application.Features.Auth.Rules;
 using Application.Features.Users.Rules;
+using Application.Features.BookShelfs.Rules;
+using Application.Features.Books.Rules;
 
 namespace Application
 {
@@ -26,8 +28,10 @@ namespace Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<IAuthService, AuthManager>();
+            services.AddScoped<BookShelfBusinessRules>();
             services.AddScoped<AuthBusinessRules>();
             services.AddScoped<UserBusinessRules>();
+            services.AddScoped<BookBusinessRules>();
             return services;
 
         }

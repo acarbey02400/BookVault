@@ -23,13 +23,13 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Get([FromQuery] GetByIdUserQuery query)
         {
             UserGetByIdDto result = await Mediator.Send(query);
-            return Created("", result);
+            return Ok(result);
         }
         [HttpGet("list")]
         public async Task<IActionResult> GetList([FromQuery] GetListUserQuery query)
         {
             UserListModel result = await Mediator.Send(query);
-            return Created("", result);
+            return Ok(result);
         }
     }
 }

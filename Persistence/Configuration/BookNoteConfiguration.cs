@@ -23,7 +23,6 @@ namespace Persistence.Configuration
             a.Property(p => p.BookId).HasColumnName("BookId");
             a.Property(p => p.Description).HasColumnName("Description");
             a.HasMany(p => p.SharedUsers);
-            a.HasOne(p => p.Book).WithMany().HasForeignKey(p => p.BookId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

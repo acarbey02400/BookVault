@@ -18,7 +18,7 @@ namespace Domain.Entities
         public float Price { get; set; }
         public BookCategory Category { get; set; }
         public virtual BookShelf BookShelf { get; set; }
-        public ICollection<BookNote> BookNotes { get; set; }
+        public ICollection<BookNote>? BookNotes { get; set; }
         public Book()
         {
             

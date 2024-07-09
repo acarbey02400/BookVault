@@ -12,7 +12,7 @@ namespace Application.Features.Users.Rules
     {
         public void UserShouldExistWhenRequest(User? User)
         {
-            if (User == null) throw new BusinessException("Requested programing language does not exist.");
+            if (User == null) throw new BusinessException("Requested Book does not exist.");
         }
     }
 }

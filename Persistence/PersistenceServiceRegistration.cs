@@ -23,6 +23,10 @@ namespace Persistence
             services.AddScoped<IOperationClaimRepository, OperationClaimRepository>();
             services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+            services.AddScoped<IBookShelfRepository, BookShelfRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IBookNoteRepository, BookNoteRepository>();
+
             return services;
         }
     }
