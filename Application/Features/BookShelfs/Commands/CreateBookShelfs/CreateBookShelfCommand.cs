@@ -1,6 +1,7 @@
 ﻿using Application.Features.BookShelfs.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Logging;
 using Domain.Entities;
 using MediatR;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookShelfs.Commands.CreateBookShelfs
 {
-    public class CreateBookShelfCommand:IRequest<CreateBookShelfDto>
+    public class CreateBookShelfCommand:IRequest<CreateBookShelfDto>, ILoggableRequest
     {
         public string ShelfCode { get; set; }
         public string Location { get; set; }

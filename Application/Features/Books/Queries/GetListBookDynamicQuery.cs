@@ -1,6 +1,7 @@
 ﻿using Application.Features.Books.Models;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Logging;
 using Core.Application.Requests;
 using Core.Persistence.Dynamic;
 using Core.Persistence.Paging;
@@ -15,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Books.Queries
 {
-    public class GetListBookDynamicQuery : IRequest<BookListModel>
+    public class GetListBookDynamicQuery : IRequest<BookListModel>, ILoggableRequest
     {
         public PageRequest? PageRequest { get; set; }
         public Dynamic? Dynamic { get; set; }

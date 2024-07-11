@@ -1,6 +1,7 @@
 ﻿using Application.Features.UserBookNotes.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Logging;
 using Domain.Entities;
 using MediatR;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.UserBookNotes.Commands.CreateUserBookNotes
 {
-    public class CreateUserBookNoteCommand:IRequest<CreateUserBookNoteDto>
+    public class CreateUserBookNoteCommand:IRequest<CreateUserBookNoteDto>, ILoggableRequest
     {
         public int UserId { get; set; }
         public int BookNoteId { get; set; }

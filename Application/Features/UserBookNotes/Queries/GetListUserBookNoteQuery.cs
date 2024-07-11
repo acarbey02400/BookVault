@@ -1,6 +1,7 @@
 ﻿using Application.Features.UserBookNotes.Models;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Logging;
 using Core.Application.Requests;
 using Core.Persistence.Paging;
 using Domain.Entities;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.UserBookNotes.Queries
 {
-    public class GetListUserBookNoteQuery : IRequest<UserBookNoteListModel>
+    public class GetListUserBookNoteQuery : IRequest<UserBookNoteListModel>, ILoggableRequest
     {
         public PageRequest? PageRequest { get; set; }
 

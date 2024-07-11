@@ -1,6 +1,7 @@
 ﻿using Application.Features.BookNotes.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Logging;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookNotes.Queries
 {
-    public class GetByIdBookNoteQuery:IRequest<BookNoteGetByIdDto>
+    public class GetByIdBookNoteQuery:IRequest<BookNoteGetByIdDto>, ILoggableRequest
     {
         public int Id { get; set; }
     }

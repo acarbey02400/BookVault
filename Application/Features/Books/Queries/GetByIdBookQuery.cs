@@ -2,6 +2,7 @@
 using Application.Features.Books.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Logging;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Books.Queries
 {
-    public class GetByIdBookQuery:IRequest<BookGetByIdDto>
+    public class GetByIdBookQuery:IRequest<BookGetByIdDto>, ILoggableRequest
     {
         public int Id { get; set; }
     }

@@ -1,0 +1,1 @@
+2024-07-11 15:26:08.786 +03:00 [Information] {"FullName":null,"MethodName":"<Handle>b__2","User":"?","Parameters":[{"Name":null,"Value":{"Name":"string","ImageUrl":"string","BookShelfId":1,"Description":"string","Stock":10,"Price":1000.0,"Category":2},"Type":"CreateBookCommand"}]}

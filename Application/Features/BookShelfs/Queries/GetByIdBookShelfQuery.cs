@@ -2,6 +2,7 @@
 using Application.Features.BookShelfs.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Logging;
 using Domain.Entities;
 using MediatR;
 using System;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookShelfs.Queries
 {
-    public class GetByIdBookShelfQuery:IRequest<GetByIdBookShelfDto>
+    public class GetByIdBookShelfQuery:IRequest<GetByIdBookShelfDto>, ILoggableRequest
     {
         public int Id { get; set; }
     }

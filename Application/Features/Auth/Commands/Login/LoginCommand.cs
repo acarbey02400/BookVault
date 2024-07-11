@@ -3,6 +3,7 @@ using Application.Features.Auth.Rules;
 using Application.Services.AuthService;
 using Application.Services.Repositories;
 using Core.Application.Authorization;
+using Core.Application.Logging;
 using Core.Entities;
 using Core.Security.Dtos;
 using Core.Security.JWT;
@@ -15,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Auth.Commands.Login
 {
-    public class LoginCommand : IRequest<LoginedDto>
+    public class LoginCommand : IRequest<LoginedDto>, ILoggableRequest
     {
         public UserForLoginDto? UserForLoginDto { get; set; }
         public string? IpAddress { get; set; }

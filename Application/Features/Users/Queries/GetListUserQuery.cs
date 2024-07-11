@@ -1,6 +1,7 @@
 ﻿using Application.Features.Users.Models;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Logging;
 using Core.Application.Requests;
 using Core.Entities;
 using Core.Persistence.Paging;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Users.Queries
 {
-    public class GetListUserQuery : IRequest<UserListModel>
+    public class GetListUserQuery : IRequest<UserListModel>, ILoggableRequest
     {
         public PageRequest? PageRequest { get; set; }
 

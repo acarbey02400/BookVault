@@ -1,6 +1,7 @@
 ﻿using Application.Features.Books.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Logging;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Books.Commands.Create
 {
-    public class CreateBookCommand:IRequest<CreateBookDto>
+    public class CreateBookCommand:IRequest<CreateBookDto>, ILoggableRequest
     {
         public string Name { get; set; }
         public string? ImageUrl { get; set; }

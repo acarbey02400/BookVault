@@ -2,6 +2,7 @@
 using Application.Features.Auth.Rules;
 using Application.Services.AuthService;
 using Application.Services.Repositories;
+using Core.Application.Logging;
 using Core.Entities;
 using Core.Security.Dtos;
 using Core.Security.Hashing;
@@ -15,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Auth.Commands.Register
 {
-    public class RegisterCommand : IRequest<RegisteredDto>
+    public class RegisterCommand : IRequest<RegisteredDto>, ILoggableRequest
     {
         public UserForRegisterDto? UserForRegisterDto { get; set; }
         public string? IpAddress { get; set; }
