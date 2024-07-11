@@ -1,6 +1,7 @@
 ﻿using Application.Features.BookNotes.Models;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Authorization;
 using Core.Application.Logging;
 using Core.Application.Requests;
 using Core.Persistence.Paging;
@@ -15,8 +16,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookNotes.Queries
 {
-    public class GetListBookNoteQuery:IRequest<BookNoteListModel>, ILoggableRequest
+    public class GetListBookNoteQuery:IRequest<BookNoteListModel>, ILoggableRequest, ISecuredRequest
     {
+        public string[] Roles => new string[] { "user", "admin" };
         public PageRequest? PageRequest { get; set; }
 
     }

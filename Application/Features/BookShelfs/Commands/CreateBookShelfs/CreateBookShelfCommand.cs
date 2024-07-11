@@ -1,6 +1,7 @@
 ﻿using Application.Features.BookShelfs.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Authorization;
 using Core.Application.Logging;
 using Domain.Entities;
 using MediatR;
@@ -12,8 +13,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookShelfs.Commands.CreateBookShelfs
 {
-    public class CreateBookShelfCommand:IRequest<CreateBookShelfDto>, ILoggableRequest
+    public class CreateBookShelfCommand:IRequest<CreateBookShelfDto>, ILoggableRequest, ISecuredRequest
     {
+        public string[] Roles => new string[] { "admin" };
         public string ShelfCode { get; set; }
         public string Location { get; set; }
         public int CreatedById { get; set; }

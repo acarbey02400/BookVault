@@ -1,6 +1,7 @@
 ﻿using Application.Features.UserBookNotes.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Authorization;
 using Core.Application.Logging;
 using Domain.Entities;
 using MediatR;
@@ -12,8 +13,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.UserBookNotes.Commands.CreateUserBookNotes
 {
-    public class CreateUserBookNoteCommand:IRequest<CreateUserBookNoteDto>, ILoggableRequest
+    public class CreateUserBookNoteCommand:IRequest<CreateUserBookNoteDto>, ILoggableRequest, ISecuredRequest
     {
+        public string[] Roles => new string[] { "user", "admin" };
         public int UserId { get; set; }
         public int BookNoteId { get; set; }
     }

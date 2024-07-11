@@ -1,6 +1,7 @@
 ﻿using Application.Features.Books.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Authorization;
 using Core.Application.Logging;
 using Domain.Entities;
 using Domain.Enums;
@@ -13,8 +14,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Books.Commands.Create
 {
-    public class CreateBookCommand:IRequest<CreateBookDto>, ILoggableRequest
+    public class CreateBookCommand:IRequest<CreateBookDto>, ILoggableRequest,ISecuredRequest
     {
+        public string[] Roles => new string[] { "admin" };
         public string Name { get; set; }
         public string? ImageUrl { get; set; }
         public int BookShelfId { get; set; }
@@ -22,6 +24,8 @@ namespace Application.Features.Books.Commands.Create
         public int Stock { get; set; }
         public float Price { get; set; }
         public BookCategory Category { get; set; }
+
+        
     }
     public class CreateBookCommandHandler : IRequestHandler<CreateBookCommand, CreateBookDto>
     {

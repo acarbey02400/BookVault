@@ -3,6 +3,7 @@ using Application.Features.Users.Dtos;
 using Application.Features.Users.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Authorization;
 using Core.Application.Logging;
 using Core.Entities;
 using MediatR;
@@ -14,8 +15,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Users.Commands.UpdateUser
 {
-    public class UpdateUserCommand : IRequest<UpdateUserDto>, ILoggableRequest
+    public class UpdateUserCommand : IRequest<UpdateUserDto>, ILoggableRequest, ISecuredRequest
     {
+        public string[] Roles => new string[] { "admin" };
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public bool Status { get; set; }

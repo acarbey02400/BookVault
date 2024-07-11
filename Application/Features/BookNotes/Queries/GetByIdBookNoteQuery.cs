@@ -1,6 +1,7 @@
 ﻿using Application.Features.BookNotes.Dtos;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Authorization;
 using Core.Application.Logging;
 using MediatR;
 using System;
@@ -11,8 +12,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookNotes.Queries
 {
-    public class GetByIdBookNoteQuery:IRequest<BookNoteGetByIdDto>, ILoggableRequest
+    public class GetByIdBookNoteQuery:IRequest<BookNoteGetByIdDto>, ILoggableRequest, ISecuredRequest
     {
+        public string[] Roles => new string[] { "user" ,"admin"};
         public int Id { get; set; }
     }
     public class GetByIdBookNoteQueryHandler : IRequestHandler<GetByIdBookNoteQuery, BookNoteGetByIdDto>

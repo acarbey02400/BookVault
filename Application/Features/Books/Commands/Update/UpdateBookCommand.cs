@@ -2,6 +2,7 @@
 using Application.Features.Books.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Authorization;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
@@ -13,8 +14,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Books.Commands.Update
 {
-    public class UpdateBookCommand : IRequest<UpdateBookDto>
+    public class UpdateBookCommand : IRequest<UpdateBookDto>, ISecuredRequest
     {
+        public string[] Roles => new string[] {  "admin" };
         public int Id { get; set; }
         public string Name { get; set; }
         public string? ImageUrl { get; set; }

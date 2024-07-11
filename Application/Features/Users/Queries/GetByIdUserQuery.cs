@@ -2,6 +2,7 @@
 using Application.Features.Users.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Authorization;
 using Core.Application.Logging;
 using Core.Entities;
 using MediatR;
@@ -14,8 +15,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Users.Queries
 {
-    public class GetByIdUserQuery : IRequest<UserGetByIdDto>, ILoggableRequest
+    public class GetByIdUserQuery : IRequest<UserGetByIdDto>, ILoggableRequest, ISecuredRequest
     {
+        public string[] Roles => new string[] {  "admin" };
         public int Id { get; set; }
 
         public class GetByIdUserHandler : IRequestHandler<GetByIdUserQuery, UserGetByIdDto>
