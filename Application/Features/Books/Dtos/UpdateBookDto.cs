@@ -9,6 +9,7 @@ namespace Application.Features.Books.Dtos
 {
     public class UpdateBookDto
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string? ImageUrl { get; set; }
         public int BookShelfId { get; set; }
