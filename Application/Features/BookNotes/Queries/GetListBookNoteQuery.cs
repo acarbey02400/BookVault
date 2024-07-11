@@ -5,6 +5,7 @@ using Core.Application.Requests;
 using Core.Persistence.Paging;
 using Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace Application.Features.BookNotes.Queries
         }
         public async Task<BookNoteListModel> Handle(GetListBookNoteQuery request, CancellationToken cancellationToken)
         {
-            IPaginate<BookNote> bookNotes= await _bookNoteRepository.GetListAsync(size:request.PageRequest.PageSize, index:request.PageRequest.PageSize);
+            IPaginate<BookNote> bookNotes= await _bookNoteRepository.GetListAsync(size:request.PageRequest.PageSize, index:request.PageRequest.Page,include:p=>p.Include(x=>x.UserBookNotes).Include(x=>x.Book));
             BookNoteListModel bookNoteList =_mapper.Map<BookNoteListModel>(bookNotes);
             return bookNoteList;
         }

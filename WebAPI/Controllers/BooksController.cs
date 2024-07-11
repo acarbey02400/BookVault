@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
             UpdateBookDto result = await Mediator.Send(command);
             return Created("",result);
         }
-        [HttpGet("getbyid")]
+        [HttpGet("get")]
         public async Task<IActionResult> GetById([FromQuery]GetByIdBookQuery query)
         {
             BookGetByIdDto result=await Mediator.Send(query);

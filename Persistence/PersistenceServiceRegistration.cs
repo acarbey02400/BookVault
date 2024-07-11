@@ -26,7 +26,7 @@ namespace Persistence
             services.AddScoped<IBookShelfRepository, BookShelfRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookNoteRepository, BookNoteRepository>();
-
+            services.AddScoped<IUserBookNoteRepository, UserBookNoteRepository>();
             return services;
         }
     }
