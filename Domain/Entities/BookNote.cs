@@ -14,18 +14,18 @@ namespace Domain.Entities
         public string Description { get; set; }
         public bool IsShared { get; set; }
         public virtual Book Book { get; set; }
-        public ICollection<User>? SharedUsers { get; set; }
+        public ICollection<UserBookNote>? UserBookNotes { get; set; }
         public BookNote()
         {
             
         }
 
-        public BookNote(int bookId, string description, bool ısShared, ICollection<User>? sharedUsers)
+        public BookNote(int bookId, string description, bool isShared, ICollection<UserBookNote>? sharedUsers)
         {
             BookId = bookId;
             Description = description;
-            IsShared = ısShared;
-            SharedUsers = sharedUsers;
+            IsShared = isShared;
+            UserBookNotes = sharedUsers;
         }
     }
 }

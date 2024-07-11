@@ -1,4 +1,5 @@
-﻿using Core.Enums;
+﻿using Core.Entities;
+using Core.Enums;
 using Core.Persistence.Repositories;
 using System;
 using System.Collections.Generic;

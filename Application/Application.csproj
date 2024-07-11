@@ -20,12 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\BookNotes\Commands\" />
-    <Folder Include="Features\BookNotes\Dtos\" />
     <Folder Include="Features\BookNotes\Models\" />
     <Folder Include="Features\BookNotes\Rules\" />
-    <Folder Include="Features\BookNotes\Profiles\" />
-    <Folder Include="Features\BookNotes\Queries\" />
     <Folder Include="Features\BookShelfs\Models\" />
   </ItemGroup>
 

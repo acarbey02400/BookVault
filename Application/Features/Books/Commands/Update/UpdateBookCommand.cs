@@ -24,6 +24,9 @@ namespace Application.Features.Books.Commands.Update
         public float Price { get; set; }
         public int UpdatedById { get; set; }
         public BookCategory? Category { get; set; }
+        public bool? IsDeleted { get; set; }
+        public bool? IsActive { get; set; }
+
     }
     public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand, UpdateBookDto>
     {
@@ -49,6 +52,8 @@ namespace Application.Features.Books.Commands.Update
             getBook.Category= (BookCategory)(request.Category==null?getBook.Category:request.Category);
             getBook.UpdatedDate=DateTime.Now;
             getBook.UpdatedById = request.UpdatedById;
+            getBook.IsActive=(bool)(request.IsActive==null?getBook.IsActive:request.IsActive);
+            getBook.IsDeleted=(bool)(request.IsDeleted==null?getBook.IsDeleted:request.IsDeleted);
             Book? updatedBook=await _bookRepository.UpdateAsync(getBook);
             Book UpdatedBook = await _bookRepository.AddAsync(updatedBook);
             UpdateBookDto mappedUpdatedBook = _mapper.Map<UpdateBookDto>(UpdatedBook);

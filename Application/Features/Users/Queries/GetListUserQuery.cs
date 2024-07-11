@@ -4,6 +4,7 @@ using AutoMapper;
 using Core.Application.Requests;
 using Core.Entities;
 using Core.Persistence.Paging;
+using Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
