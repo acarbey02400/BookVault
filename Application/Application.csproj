@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\BookNotes\Models\" />
     <Folder Include="Features\BookNotes\Rules\" />
     <Folder Include="Features\BookShelfs\Models\" />
   </ItemGroup>

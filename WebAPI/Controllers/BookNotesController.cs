@@ -1,5 +1,6 @@
 ﻿using Application.Features.BookNotes.Commands.Create;
 using Application.Features.BookNotes.Dtos;
+using Application.Features.BookNotes.Models;
 using Application.Features.BookNotes.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -21,6 +22,12 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetById([FromQuery] GetByIdBookNoteQuery query)
         {
             BookNoteGetByIdDto result = await Mediator.Send(query);
+            return Created("", result);
+        }
+        [HttpGet("getlist")]
+        public async Task<IActionResult> GetList([FromQuery] GetListBookNoteQuery query)
+        {
+            BookNoteListModel result = await Mediator.Send(query);
             return Created("", result);
         }
     }
